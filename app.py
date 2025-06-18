@@ -123,12 +123,13 @@ def update_user(id):
         dept = request.form['dept']
         phone = request.form['phone']
         email = request.form['email']
+        password = request.form['password']
         
         cur.execute("""
             UPDATE emp 
-            SET username=%s, age=%s, dept=%s, phone=%s, email=%s 
+            SET username=%s, age=%s, dept=%s, phone=%s, email=%s , password=%s
             WHERE id=%s
-        """, (username, age, dept, phone, email, id))
+        """, (username, age, dept, phone, email, password, id))
         
         mysql.connection.commit()
         cur.close()
